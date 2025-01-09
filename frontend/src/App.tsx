@@ -32,6 +32,7 @@ import {
 import { getHashData } from './utils';
 
 import './App.css';
+import './QFNTheme.css';
 
 export default class App extends React.Component {
   private chainsCache: ChainData[] = [];
