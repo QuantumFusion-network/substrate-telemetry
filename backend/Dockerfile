@@ -8,7 +8,7 @@ COPY . .
 RUN cargo build --${PROFILE} --bins
 
 # MAIN IMAGE FOR PEOPLE TO PULL --- small one#
-FROM docker.io/debian:buster-slim
+FROM docker.io/debian:bookworm-slim
 LABEL maintainer="QF Network"
 LABEL description="Substrate Telemetry Backend shard/core binaries, static build"
 
