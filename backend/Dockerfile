@@ -9,7 +9,7 @@ RUN cargo build --${PROFILE} --bins
 
 # MAIN IMAGE FOR PEOPLE TO PULL --- small one#
 FROM docker.io/debian:buster-slim
-LABEL maintainer="Parity Technologies"
+LABEL maintainer="QF Network"
 LABEL description="Substrate Telemetry Backend shard/core binaries, static build"
 
 ARG PROFILE=release

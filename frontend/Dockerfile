@@ -1,6 +1,6 @@
 #### BUILDER IMAGE  ####
 FROM docker.io/node:18 as builder
-LABEL maintainer="Chevdor <chevdor@gmail.com>"
+LABEL maintainer="QF Network"
 LABEL description="Substrate Telemetry Frontend builder image"
 
 WORKDIR /opt/builder
@@ -11,7 +11,7 @@ RUN npm install && npm run build
 
 #### OUTPUT IMAGE ####
 FROM docker.io/nginx:stable-alpine
-LABEL maintainer="Chevdor <chevdor@gmail.com>"
+LABEL maintainer="QF Network"
 LABEL description="Substrate Telemetry Frontend"
 
 # Each time this container is ran, the value that's provided for this env var
