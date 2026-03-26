@@ -16,7 +16,7 @@ LABEL description="Substrate Telemetry Frontend"
 
 # Each time this container is ran, the value that's provided for this env var
 # determines where the frontend will try to request feed information from:
-ENV SUBSTRATE_TELEMETRY_URL=
+ENV SUBSTRATE_TELEMETRY_URL=""
 
 WORKDIR /app
 
@@ -35,6 +35,6 @@ RUN apk add --no-cache bash && \
 
 # UID= 101
 USER nginx
-EXPOSE 8000
+EXPOSE 8080
 
 CMD ["/usr/local/bin/start.sh"]
