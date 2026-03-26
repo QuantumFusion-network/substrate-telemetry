@@ -10,12 +10,12 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  IMAGE_NAME: parity/substrate-telemetry
+  IMAGE_NAME: theqfnetwork/substrate-telemetry
 
 jobs:
   set-variables:
     name: Set variables
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     outputs:
       VERSION: ${{ steps.version.outputs.VERSION }}
     steps:
@@ -36,16 +36,16 @@ jobs:
 
   build_backend:
     name: Build backend docker image
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: [set-variables]
     env:
       VERSION: ${{ needs.set-variables.outputs.VERSION }}
     steps:
       - name: Check out the repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Build and push Docker image from main
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v7
         with:
           context: backend
           file: ./backend/Dockerfile
@@ -55,16 +55,16 @@ jobs:
 
   build_frontend:
     name: Build frontend docker image
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: [set-variables]
     env:
       VERSION: ${{ needs.set-variables.outputs.VERSION }}
     steps:
       - name: Check out the repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Build and push Docker image from main
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v7
         with:
           context: frontend
           file: ./frontend/Dockerfile
